@@ -39,7 +39,6 @@ class Goal
      */
     private $scorer;
 
-
     /**
      * Get id
      *
@@ -69,7 +68,7 @@ class Goal
     }
 
     /**
-     * @return Team
+     * @return Team 
      */
     public function getTeam()
     {

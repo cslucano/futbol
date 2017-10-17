@@ -90,4 +90,12 @@ class Game
         $this->visitor = $visitor;
         return $this;
     }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGoals()
+    {
+        return $this->goals;
+    }
 }
