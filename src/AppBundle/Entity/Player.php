@@ -28,6 +28,11 @@ class Player
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Team")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     */
+    private $team;
 
     /**
      * Get id
@@ -62,5 +67,24 @@ class Player
     {
         return $this->name;
     }
+
+    /**
+     * @return Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param Team $team
+     * @return Player
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+        return $this;
+    }
+
 }
 

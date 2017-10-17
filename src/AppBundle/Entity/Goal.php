@@ -28,6 +28,12 @@ class Goal
     private $game;
 
     /**
+     * @ORM\OneToOne(targetEntity="Team")
+     * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     */
+    private $team;
+
+    /**
      * @ORM\OneToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="scorer_id", referencedColumnName="id")
      */
@@ -61,4 +67,43 @@ class Goal
         $this->game = $game;
         return $this;
     }
+
+    /**
+     * @return Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param Team $team
+     * @return Goal
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
+        return $this;
+    }
+
+
+
+    /**
+     * @return Player
+     */
+    public function getScorer()
+    {
+        return $this->scorer;
+    }
+
+    /**
+     * @param Player $scorer
+     * @return Goal
+     */
+    public function setScorer($scorer)
+    {
+        $this->scorer = $scorer;
+        return $this;
+    }
+
 }
