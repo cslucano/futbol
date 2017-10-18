@@ -4,6 +4,7 @@ namespace AppBundle\Futbol;
 
 use AppBundle\Entity\Game;
 use AppBundle\Entity\Goal;
+use AppBundle\Entity\Player;
 use AppBundle\Entity\Team;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -52,5 +53,24 @@ class Futbol
             
         }
         return sprintf('%s %s %s %s', $localName, $localgoals, $visitorName, $visitorgoals);
+    }
+
+    public function getPlayers(Team $team) {
+        $players = sprintf("Team: %s\n", $team->getName());
+        /** @var Player $player */
+        foreach ($team->getPlayers() as $player) {
+            $players .= sprintf(" %s\n", $player->getName());
+        }
+
+        return $players;
+    }
+
+    public function getIntoPlayer(Team $team, $playerName) {
+        $player = new Player();
+        $player->setName($playerName);
+        $player->setTeam($team);
+
+        $this->manager->persist($player);
+        $this->manager->flush();
     }
 }

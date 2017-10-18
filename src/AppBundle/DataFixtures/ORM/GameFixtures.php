@@ -10,6 +10,7 @@ class GameFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $game = new Game();
+        $game->setName('G1');
         $game->setLocal($this->getReference('team-uni'));
         $game->setVisitor($this->getReference('team-unmsm'));
         $manager->persist($game);

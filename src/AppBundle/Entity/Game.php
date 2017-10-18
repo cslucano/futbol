@@ -23,6 +23,13 @@ class Game
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     */
+    private $name;
+
+    /**
      * @ORM\OneToOne(targetEntity="Team")
      * @ORM\JoinColumn(name="local_id", referencedColumnName="id")
      */
@@ -55,6 +62,24 @@ class Game
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Game
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+    
     /**
      * @return Team
      */
