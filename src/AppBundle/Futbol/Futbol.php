@@ -16,6 +16,7 @@ class Futbol
 
     public function __construct(ObjectManager $manager)
     {
+        $this->manager = $manager;
     }
 
     public function createGame(Team $local, Team $visitor) 
